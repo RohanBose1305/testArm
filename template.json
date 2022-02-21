@@ -1,0 +1,663 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workflows_test_name": {
+            "defaultValue": "test",
+            "type": "String"
+        },
+        "integrationAccounts_LiquidIntegration_externalid": {
+            "defaultValue": "/subscriptions/5df527a2-240d-44fe-a163-2488e30b80fb/resourceGroups/test_env/providers/Microsoft.Logic/integrationAccounts/LiquidIntegration",
+            "type": "String"
+        },
+        "connections_azureblob_externalid": {
+            "defaultValue": "/subscriptions/5df527a2-240d-44fe-a163-2488e30b80fb/resourceGroups/test_env/providers/Microsoft.Web/connections/azureblob",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Logic/workflows",
+            "apiVersion": "2017-07-01",
+            "name": "[parameters('workflows_test_name')]",
+            "location": "northcentralus",
+            "properties": {
+                "state": "Enabled",
+                "integrationAccount": {
+                    "id": "[parameters('integrationAccounts_LiquidIntegration_externalid')]"
+                },
+                "definition": {
+                    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                        "$connections": {
+                            "defaultValue": {},
+                            "type": "Object"
+                        }
+                    },
+                    "triggers": {
+                        "manual": {
+                            "type": "Request",
+                            "kind": "Http",
+                            "inputs": {
+                                "schema": {
+                                    "properties": {
+                                        "UNH": {
+                                            "properties": {
+                                                "UNH1": {
+                                                    "type": "string"
+                                                },
+                                                "UNH2": {
+                                                    "properties": {
+                                                        "UNH2.1": {
+                                                            "type": "string"
+                                                        },
+                                                        "UNH2.2": {
+                                                            "type": "string"
+                                                        },
+                                                        "UNH2.3": {
+                                                            "type": "string"
+                                                        },
+                                                        "UNH2.4": {
+                                                            "type": "string"
+                                                        },
+                                                        "UNH2.5": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "UNT": {
+                                            "properties": {
+                                                "UNT1": {
+                                                    "type": "string"
+                                                },
+                                                "UNT2": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "ns0:ALCLoop1": {
+                                            "properties": {
+                                                "ns0:ALC": {
+                                                    "properties": {
+                                                        "ALC01": {
+                                                            "type": "string"
+                                                        },
+                                                        "ALC03": {
+                                                            "type": "string"
+                                                        },
+                                                        "ALC04": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "ns0:MOALoop1": {
+                                                    "properties": {
+                                                        "ns0:MOA_3": {
+                                                            "properties": {
+                                                                "ns0:C516_3": {
+                                                                    "properties": {
+                                                                        "C51601": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "C51602": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "type": "object"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "ns0:PCDLoop1": {
+                                                    "properties": {
+                                                        "ns0:PCD_3": {
+                                                            "properties": {
+                                                                "ns0:C501_3": {
+                                                                    "properties": {
+                                                                        "C50101": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "C50102": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "type": "object"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "ns0:BGM": {
+                                            "properties": {
+                                                "BGM03": {
+                                                    "type": "string"
+                                                },
+                                                "ns0:C002": {
+                                                    "properties": {
+                                                        "C00201": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "ns0:C106": {
+                                                    "properties": {
+                                                        "C10601": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "ns0:CNT": {
+                                            "properties": {
+                                                "ns0:C270": {
+                                                    "properties": {
+                                                        "C27001": {
+                                                            "type": "string"
+                                                        },
+                                                        "C27002": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "ns0:CUXLoop1": {
+                                            "properties": {
+                                                "ns0:CUX": {
+                                                    "properties": {
+                                                        "ns0:C504": {
+                                                            "properties": {
+                                                                "C50401": {
+                                                                    "type": "string"
+                                                                },
+                                                                "C50402": {
+                                                                    "type": "string"
+                                                                },
+                                                                "C50403": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "ns0:DTM": {
+                                            "items": {
+                                                "properties": {
+                                                    "ns0:C507": {
+                                                        "properties": {
+                                                            "C50701": {
+                                                                "type": "string"
+                                                            },
+                                                            "C50702": {
+                                                                "type": "string"
+                                                            },
+                                                            "C50703": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "ns0:C507"
+                                                ],
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "ns0:LINLoop1": {
+                                            "items": {
+                                                "properties": {
+                                                    "ns0:ALCLoop2": {
+                                                        "items": {
+                                                            "properties": {
+                                                                "ns0:ALC_2": {
+                                                                    "properties": {
+                                                                        "ALC01": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "ALC04": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "ns0:C214_2": {
+                                                                            "properties": {
+                                                                                "C21404": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "type": "object"
+                                                                        }
+                                                                    },
+                                                                    "type": "object"
+                                                                },
+                                                                "ns0:MOALoop2": {
+                                                                    "properties": {
+                                                                        "ns0:MOA_8": {
+                                                                            "properties": {
+                                                                                "ns0:C516_8": {
+                                                                                    "properties": {
+                                                                                        "C51601": {
+                                                                                            "type": "string"
+                                                                                        },
+                                                                                        "C51602": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "object"
+                                                                                }
+                                                                            },
+                                                                            "type": "object"
+                                                                        }
+                                                                    },
+                                                                    "type": "object"
+                                                                },
+                                                                "ns0:PCDLoop2": {
+                                                                    "properties": {
+                                                                        "ns0:PCD_7": {
+                                                                            "properties": {
+                                                                                "ns0:C501_7": {
+                                                                                    "properties": {
+                                                                                        "C50101": {
+                                                                                            "type": "string"
+                                                                                        },
+                                                                                        "C50102": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "object"
+                                                                                }
+                                                                            },
+                                                                            "type": "object"
+                                                                        }
+                                                                    },
+                                                                    "type": "object"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "ns0:ALC_2",
+                                                                "ns0:PCDLoop2",
+                                                                "ns0:MOALoop2"
+                                                            ],
+                                                            "type": "object"
+                                                        },
+                                                        "type": "array"
+                                                    },
+                                                    "ns0:DTM_13": {
+                                                        "properties": {
+                                                            "ns0:C507_13": {
+                                                                "properties": {
+                                                                    "C50701": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "C50702": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "C50703": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "ns0:IMD_2": {
+                                                        "properties": {
+                                                            "IMD01": {
+                                                                "type": "string"
+                                                            },
+                                                            "ns0:C272_2": {
+                                                                "properties": {
+                                                                    "C27201": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "ns0:C273_2": {
+                                                                "properties": {
+                                                                    "C27304": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "ns0:LIN": {
+                                                        "properties": {
+                                                            "LIN01": {
+                                                                "type": "string"
+                                                            },
+                                                            "ns0:C212": {
+                                                                "properties": {
+                                                                    "C21201": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "C21202": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "ns0:MOA_5": {
+                                                        "properties": {
+                                                            "ns0:C516_5": {
+                                                                "properties": {
+                                                                    "C51601": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "C51602": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "ns0:PIA": {
+                                                        "items": {
+                                                            "properties": {
+                                                                "PIA01": {
+                                                                    "type": "string"
+                                                                },
+                                                                "ns0:C212_2": {
+                                                                    "properties": {
+                                                                        "C21201": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "C21202": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "type": "object"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "PIA01",
+                                                                "ns0:C212_2"
+                                                            ],
+                                                            "type": "object"
+                                                        },
+                                                        "type": "array"
+                                                    },
+                                                    "ns0:PRILoop1": {
+                                                        "properties": {
+                                                            "ns0:PRI": {
+                                                                "properties": {
+                                                                    "ns0:C509": {
+                                                                        "properties": {
+                                                                            "C50901": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "C50902": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "C50903": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        },
+                                                                        "type": "object"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "ns0:QTY_3": {
+                                                        "properties": {
+                                                            "ns0:C186_3": {
+                                                                "properties": {
+                                                                    "C18601": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "C18602": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "C18603": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "ns0:LIN",
+                                                    "ns0:PIA",
+                                                    "ns0:IMD_2",
+                                                    "ns0:QTY_3",
+                                                    "ns0:DTM_13",
+                                                    "ns0:MOA_5",
+                                                    "ns0:PRILoop1",
+                                                    "ns0:ALCLoop2"
+                                                ],
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "ns0:MOA_11": {
+                                            "properties": {
+                                                "ns0:C516_11": {
+                                                    "properties": {
+                                                        "C51601": {
+                                                            "type": "string"
+                                                        },
+                                                        "C51602": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "ns0:NADLoop1": {
+                                            "items": {
+                                                "properties": {
+                                                    "ns0:NAD": {
+                                                        "properties": {
+                                                            "NAD01": {
+                                                                "type": "string"
+                                                            },
+                                                            "ns0:C082": {
+                                                                "properties": {
+                                                                    "C08201": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "C08203": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "ns0:NAD"
+                                                ],
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "ns0:RFFLoop1": {
+                                            "items": {
+                                                "properties": {
+                                                    "ns0:RFF": {
+                                                        "properties": {
+                                                            "ns0:C506": {
+                                                                "properties": {
+                                                                    "C50601": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "C50602": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "ns0:RFF"
+                                                ],
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "ns0:TODLoop1": {
+                                            "properties": {
+                                                "ns0:TOD": {
+                                                    "properties": {
+                                                        "TOD01": {
+                                                            "type": "string"
+                                                        },
+                                                        "ns0:C100": {
+                                                            "properties": {
+                                                                "C10001": {
+                                                                    "type": "string"
+                                                                },
+                                                                "C10004": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "ns0:UNS": {
+                                            "properties": {
+                                                "UNS01": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "actions": {
+                        "Compose": {
+                            "runAfter": {
+                                "XMLFILE": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "Compose",
+                            "inputs": "ns0:EFACT_D01B_ORDRSP_EAN005"
+                        },
+                        "Response": {
+                            "runAfter": {
+                                "Transform_JSON_to_JSON": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "Response",
+                            "kind": "Http",
+                            "inputs": {
+                                "body": "working",
+                                "statusCode": 200
+                            }
+                        },
+                        "Transform_JSON_to_JSON": {
+                            "runAfter": {
+                                "Compose": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "Liquid",
+                            "kind": "JsonToJson",
+                            "inputs": {
+                                "content": "@json(xml(body('XMLFILE')))?[outputs('Compose')]",
+                                "integrationAccount": {
+                                    "map": {
+                                        "name": "invoicLiquid"
+                                    }
+                                }
+                            }
+                        },
+                        "XMLFILE": {
+                            "runAfter": {},
+                            "metadata": {
+                                "JTJmdHJhbnNmb3JtYXRpb24lMmZERVNBRFYtd2l0aCtkZWxpdmVyeS54bWw=": "/transformation/DESADV-with delivery.xml",
+                                "JTJmdHJhbnNmb3JtYXRpb24lMmZJTlZPSUMueG1s": "/transformation/INVOIC.xml",
+                                "JTJmdHJhbnNmb3JtYXRpb24lMmZlZGlmYWN0VG9YTUwueG1s": "/transformation/edifactToXML.xml"
+                            },
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['azureblob']['connectionId']"
+                                    }
+                                },
+                                "method": "get",
+                                "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent('AccountNameFromSettings'))}/files/@{encodeURIComponent(encodeURIComponent('JTJmdHJhbnNmb3JtYXRpb24lMmZlZGlmYWN0VG9YTUwueG1s'))}/content",
+                                "queries": {
+                                    "inferContentType": true
+                                }
+                            }
+                        }
+                    },
+                    "outputs": {}
+                },
+                "parameters": {
+                    "$connections": {
+                        "value": {
+                            "azureblob": {
+                                "connectionId": "[parameters('connections_azureblob_externalid')]",
+                                "connectionName": "azureblob",
+                                "id": "/subscriptions/5df527a2-240d-44fe-a163-2488e30b80fb/providers/Microsoft.Web/locations/northcentralus/managedApis/azureblob"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
